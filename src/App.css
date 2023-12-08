@@ -1,0 +1,295 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.wrapper {
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.make-it-center {
+  width: 50%;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 1536px) {
+  .wrapper {
+    max-width: 1366px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    max-width: 1024px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    max-width: 768px;
+    padding: 0 40px;
+  }
+  .make-it-center {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 640px;
+    padding: 0 20px;
+  }
+  .make-it-center {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    max-width: 475px;
+    padding: 0 15px;
+  }
+  .make-it-center {
+    width: 100%;
+  }
+}
+
+/* Container for the multi-select component */
+.multi-select {
+  width: 100%; /* Adjusted to full width for responsiveness */
+  position: relative;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Styling for the main container of the component */
+.main-style {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 5px rgba(0, 51, 128, 0.1),
+    0 0 0 4px rgba(0, 102, 255, 0.2);
+  border: 2px solid #0066ff;
+  display: flex;
+  flex-direction: column; /* Adjusted to column layout for responsiveness */
+  align-items: stretch; /* Adjusted to stretch items for responsiveness */
+  cursor: pointer;
+}
+
+/* Styling for the container of selected options */
+.selectedOpts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styling for each selected option */
+.selectedOpts li {
+  box-sizing: border-box; /* Adjusted to include padding in width calculation */
+  display: inline-block; /* Adjusted to block layout for responsiveness */
+  padding: 5px 20px 5px 5px;
+  background-color: rgba(0, 102, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  line-height: 1.2em;
+  margin: 2px 0;
+}
+
+/* Styling for the input field */
+.main-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 40%;
+}
+
+/* Styling for the dropdown list container */
+.list-main {
+  margin-top: 10px;
+  padding: 10px 0 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px #4148560d;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for the wrapper of the dropdown list */
+.list-wrap {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+/* Styling for the scrollbar in the dropdown list */
+.list-wrap::-webkit-scrollbar,
+.list-wrap::-webkit-scrollbar-thumb {
+  width: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+}
+
+.list-wrap::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for each option in the dropdown list */
+.listOpt {
+  margin-bottom: 5px;
+}
+
+.listOpt:last-child {
+  margin-bottom: 0;
+}
+
+.listOpt label {
+  color: #333333;
+  font-weight: 500;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: block;
+  transition: all 0.2s ease-in-out;
+}
+
+.listOpt label:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/* Styling for the checkbox in the dropdown list */
+.listOpt label input {
+  float: right;
+  display: none;
+  position: relative;
+}
+
+.listOpt label input:after {
+  visibility: visible;
+  content: "L";
+  position: absolute;
+  font-size: 22px;
+  color: #0066ff;
+  top: -8px;
+  font-family: arial;
+  -ms-transform: scaleX(-1) rotate(-35deg); /* IE 9 */
+  -webkit-transform: scaleX(-1) rotate(-35deg); /* Chrome, Safari, Opera */
+  transform: scaleX(-1) rotate(-35deg);
+}
+
+/* Styling for the checked checkbox in the dropdown list */
+.listOpt label input[type="checkbox"]:checked {
+  display: block;
+  visibility: hidden;
+}
+
+.listOpt label:has(> input[type="checkbox"]:checked) {
+  color: #0066ff;
+  background-color: #f2f4ff;
+}
+
+/* Styling for the dropdown arrow */
+
+.selectarrow {
+  position: relative;
+}
+
+.selectarrow::after {
+  position: absolute;
+  top: -25px;
+  right: 10px;
+  background-color: white;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 10px;
+  display: inline-block;
+  height: 10px;
+  transform: rotate(45deg);
+  -webkit-transform: scale(1) rotate(45deg) translate(0px, 0px);
+  -moz-transform: rotate(45deg) scale(1);
+  -o-transform: rotate(45deg) scale(1);
+  content: "";
+  transition: all 0.1s ease-in-out;
+}
+
+.selectarrow.close::after {
+  top: -20px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  transform: rotate(-135deg);
+  -webkit-transform: scale(1) rotate(-135deg) translate(0px, 0px);
+  -moz-transform: rotate(-135deg) scale(1);
+  -o-transform: rotate(-135deg) scale(1);
+  transition: all 0.1s ease-in-out;
+}
+
+/* Styling for the checkbox and its label */
+.checkb:not(:checked),
+.checkb:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+
+.checkb:not(:checked) + .checkb-label,
+.checkb:checked + .checkb-label {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Styling for the checkbox aspect */
+.checkb:not(:checked) + .checkb-label:before,
+.checkb:checked + .checkb-label:before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 13px;
+  height: 14px;
+  border-radius: 0.2em;
+  -webkit-transition: all 0.275s;
+  transition: all 0.275s;
+}
+
+/* Styling for the checked mark aspect */
+.checkb:not(:checked) + .checkb-label:after,
+.checkb:checked + .checkb-label:after {
+  content: "✕";
+  position: absolute;
+  top: 11px;
+  left: 5px;
+  font-size: 12px;
+  color: #ff5050;
+  line-height: 0;
+  transition: all 0.2s;
+}
+
+/* Styling for the checkbox label on hover */
+.checkb-label:hover:before {
+  border: 0.5px solid #ff5050;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+  .selectedOpts li {
+    max-width: calc(
+      50% - 5px
+    ); /* Display two items per row for small screens */
+  }
+}

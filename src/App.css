@@ -186,7 +186,7 @@ body {
   position: absolute;
   font-size: 22px;
   color: #0066ff;
-  top: -8px;
+  top: -2px;
   font-family: arial;
   -ms-transform: scaleX(-1) rotate(-35deg); /* IE 9 */
   -webkit-transform: scaleX(-1) rotate(-35deg); /* Chrome, Safari, Opera */
